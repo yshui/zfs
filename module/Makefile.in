@@ -87,7 +87,7 @@ modules_uninstall-Linux-legacy:
 KMODDIR := $(INSTALL_MOD_PATH)/lib/modules/@LINUX_VERSION@
 modules_install-Linux: modules_uninstall-Linux-legacy
 	@# Install the kernel modules
-	$(MAKE) -C @LINUX_OBJ@ M="$$PWD" modules_install \
+	$(MAKE) -f @LINUX_OBJ@/Makefile M="$$PWD" modules_install \
 		INSTALL_MOD_PATH=$(INSTALL_MOD_PATH) \
 		INSTALL_MOD_DIR=$(INSTALL_MOD_DIR) \
 		$(if @KERNEL_ARCH@,ARCH=@KERNEL_ARCH@) \
